@@ -2,10 +2,13 @@ import Image from "next/image";
 import NumberDisplay from "./components/NumberDisplay";
 import Wall6 from "/public/image/Wall6.jpg";
 
-export default function Home() {
-  const randomNumber = Math.floor(Math.random() * 100);
+const generateNumber = () => {
+  const aNumber = Math.floor(Math.random() * 100);
+  return aNumber;
+};
 
-  console.log(randomNumber);
+export default function Home() {
+  const randomNumber = generateNumber();
   return (
     <main className="relative h-screen">
       <div className="absolute inset-0 ">
