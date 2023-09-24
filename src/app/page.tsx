@@ -2,7 +2,7 @@ import Image from "next/image";
 import NumberDisplay from "./components/NumberDisplay";
 import Wall6 from "/public/image/Wall6.jpg";
 
-const generateNumber = () => {
+export const generateNumber = () => {
   const aNumber = Math.floor(Math.random() * 100);
   return aNumber;
 };
