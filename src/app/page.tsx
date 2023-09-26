@@ -4,9 +4,13 @@ import Wall6 from "/public/image/Wall6.jpg";
 import { GET } from "./api/randomNumber/route";
 
 const generateNumber = async () => {
-  const response = await fetch(`${process.env.API_URL}/api/randomNumber`, {
-    cache: "no-store",
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/randomNumber`,
+    {
+      cache: "no-store",
+    }
+  );
+  // console.log(`URL:`, process.env.API_URL);
   if (!response.ok) {
     console.log("something went wrong");
   } else {
