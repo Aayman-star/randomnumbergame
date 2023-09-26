@@ -1,14 +1,23 @@
 import Image from "next/image";
 import NumberDisplay from "./components/NumberDisplay";
 import Wall6 from "/public/image/Wall6.jpg";
+import { GET } from "./api/randomNumber/route";
 
-export const generateNumber = () => {
-  const aNumber = Math.floor(Math.random() * 100);
-  return aNumber;
+const generateNumber = async () => {
+  const response = await fetch("http://localhost:3000/api/randomNumber", {
+    cache: "no-store",
+  });
+  if (!response.ok) {
+    console.log("something went wrong");
+  } else {
+    const newNumber = await response.json();
+    console.log(`Fetched Number :`, newNumber);
+    return newNumber.aNumber;
+  }
 };
 
-export default function Home() {
-  const randomNumber = generateNumber();
+export default async function Home() {
+  const randomNumber = await generateNumber();
   return (
     <main className="relative h-screen">
       <div className="absolute inset-0 ">
