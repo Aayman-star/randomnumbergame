@@ -4,7 +4,7 @@ import Wall6 from "/public/image/Wall6.jpg";
 import { GET } from "./api/randomNumber/route";
 
 const generateNumber = async () => {
-  const response = await fetch("http://localhost:3000/api/randomNumber", {
+  const response = await fetch(`${process.env.USER_ENDPOINT}`, {
     cache: "no-store",
   });
   if (!response.ok) {
