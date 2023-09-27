@@ -22,6 +22,7 @@ const generateNumber = async () => {
 
 export default async function Home() {
   const randomNumber = await generateNumber();
+  console.log(`The random number generated is : ${randomNumber}`);
   return (
     <main className="relative h-screen">
       <div className="absolute inset-0 ">
