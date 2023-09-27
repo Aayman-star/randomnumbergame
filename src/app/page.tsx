@@ -36,6 +36,7 @@ export default async function Home() {
         />
       </div>
       <div className="relative z-10 flex flex-col items-center justify-center gap-y-6 h-full">
+        <p>Number generated here : {randomNumber}</p>
         <h1 className="text-2xl md:text-4xl text-slate-100 font-bold">
           Test Random Number Generator
         </h1>
