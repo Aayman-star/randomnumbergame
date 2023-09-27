@@ -9,6 +9,7 @@ const generateNumber = async () => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const response = await fetch(`/api/randomNumber`, {
     next: { revalidate: 1 },
+    cache: "no-store",
   });
   // console.log(`URL:`, process.env.API_URL);
   if (!response.ok) {
