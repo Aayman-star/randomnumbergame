@@ -8,7 +8,7 @@ import React, { useEffect, useState } from "react";
 const generateNumber = async () => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
   const response = await fetch(`/api/randomNumber`, {
-    cache: "no-store",
+    next: { revalidate: 1 },
   });
   // console.log(`URL:`, process.env.API_URL);
   if (!response.ok) {
