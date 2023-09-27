@@ -1,12 +1,15 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 interface CompProp {
-  RandomNumber: number;
+  RandomNumber: any;
 }
 
 const NumberDisplay = ({ RandomNumber }: CompProp) => {
-  const [localNumber, setLocalNumber] = useState<number>(RandomNumber);
+  const [localNumber, setLocalNumber] = useState<any>(RandomNumber);
+  useEffect(() => {
+    setLocalNumber(RandomNumber);
+  }, [RandomNumber]);
   const generateNewRandomNumber = () => {
     const newNumber = Math.floor(Math.random() * 100);
     setLocalNumber(newNumber);
