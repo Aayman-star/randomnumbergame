@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import NumberDisplay from "./components/NumberDisplay";
+import NumberDisplay from "../components/NumberDisplay";
 import Wall6 from "/public/image/Wall6.jpg";
 import { GET } from "./api/randomNumber/route";
 import React, { useEffect, useState } from "react";
