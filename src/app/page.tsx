@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import NumberDisplay from "../components/NumberDisplay";
 import Wall6 from "/public/image/Wall6.jpg";
@@ -7,8 +6,7 @@ import React, { useEffect, useState } from "react";
 
 const generateNumber = async () => {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-  const response = await fetch(`/api/randomNumber`, {
-    next: { revalidate: 1 },
+  const response = await fetch(`${baseUrl}/api/randomNumber`, {
     cache: "no-store",
   });
   // console.log(`URL:`, process.env.API_URL);
@@ -21,16 +19,17 @@ const generateNumber = async () => {
   }
 };
 
-export default function Home() {
-  const [myNumber, setMyNumber] = useState<any>();
+export default async function Home() {
+  const randomNumber = await generateNumber();
+  // const [myNumber, setMyNumber] = useState<any>();
 
-  const fetchNumber = async () => {
-    const randomNumber = await generateNumber();
-    setMyNumber(randomNumber);
-  };
-  useEffect(() => {
-    fetchNumber();
-  }, []);
+  // const fetchNumber = async () => {
+  //   const randomNumber = await generateNumber();
+  //   setMyNumber(randomNumber);
+  // };
+  // useEffect(() => {
+  //   fetchNumber();
+  // }, []);
 
   // console.log(`The random number generated is : ${myNumber}`);
   return (
@@ -46,13 +45,13 @@ export default function Home() {
         />
       </div>
       <div className="relative z-10 flex flex-col items-center justify-center gap-y-6 h-full">
-        <p>Number generated here : {myNumber}</p>
+        <p>Number generated here : {randomNumber}</p>
         <h1 className="text-2xl md:text-4xl text-slate-100 font-bold">
           Test Random Number Generator
         </h1>
         <div className="w-full md:w-1/2 text-center">
           {" "}
-          <NumberDisplay RandomNumber={myNumber} />
+          <NumberDisplay RandomNumber={randomNumber} />
         </div>
       </div>
     </main>

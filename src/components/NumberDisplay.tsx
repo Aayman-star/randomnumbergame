@@ -6,10 +6,10 @@ interface CompProp {
 }
 
 const NumberDisplay = ({ RandomNumber }: CompProp) => {
-  const [localNumber, setLocalNumber] = useState<any>(RandomNumber);
-  useEffect(() => {
-    setLocalNumber(RandomNumber);
-  }, [RandomNumber]);
+  const [localNumber, setLocalNumber] = useState(RandomNumber);
+  // useEffect(() => {
+  //   setLocalNumber(RandomNumber);
+  // }, [RandomNumber]);
   const generateNewRandomNumber = () => {
     const newNumber = Math.floor(Math.random() * 100);
     setLocalNumber(newNumber);
