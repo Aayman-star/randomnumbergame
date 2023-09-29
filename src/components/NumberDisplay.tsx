@@ -2,11 +2,14 @@
 import React, { useState, useEffect } from "react";
 
 interface CompProp {
-  RandomNumber: number;
+  randomNumber: number;
 }
 
-const NumberDisplay = ({ RandomNumber }: CompProp) => {
-  const [localNumber, setLocalNumber] = useState(RandomNumber);
+const NumberDisplay = ({ randomNumber }: CompProp) => {
+  const [localNumber, setLocalNumber] = useState(randomNumber);
+  useEffect(() => {
+    setLocalNumber(randomNumber);
+  }, [randomNumber]);
   console.log(`Received in the Display Component :`, localNumber);
   // useEffect(() => {
   //   setLocalNumber(RandomNumber);

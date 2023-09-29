@@ -63,7 +63,7 @@ const NumberFetch = () => {
         </h1>
         <div className="w-full md:w-1/2 text-center">
           {" "}
-          <NumberDisplay RandomNumber={randomNumber} />
+          <NumberDisplay randomNumber={randomNumber} />
         </div>
       </div>
     </main>
