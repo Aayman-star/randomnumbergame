@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import NumberDisplay from "../components/NumberDisplay";
 import Wall6 from "/public/image/Wall6.jpg";
@@ -20,10 +21,18 @@ const generateNumber = async () => {
   }
 };
 
-export default function Home() {
+const NumberFetch = () => {
   //const randomNumber = await generateNumber();
-  const randomNumber = getrandomNumber();
+  //const randomNumber = getrandomNumber();
+
+  const [randomNumber, setRandomNumber] = useState<number>(0);
+  const RandomNumber = () => setRandomNumber(getrandomNumber());
+  useEffect(() => {
+    RandomNumber();
+  }, []);
+
   console.log(`And the number is:`, randomNumber);
+  //const numberToPass = RandomNumber();
   // const [myNumber, setMyNumber] = useState<any>();
 
   // const fetchNumber = async () => {
@@ -59,4 +68,5 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+export default NumberFetch;
